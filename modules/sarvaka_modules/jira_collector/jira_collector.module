@@ -1,0 +1,27 @@
+<?php 
+
+/**
+ * Implements hook_block_info().
+ */
+function jira_collector_block_info() {
+  $blocks = array();
+  $blocks['jira_collector_block'] = array(
+    'info' => t('Shanti JIRA Collector Block'),
+   );
+  return $blocks;
+}
+
+/**
+ * display link for opening and closing explore menu (meant for Shanti Sarvaka theme)
+ */
+function jira_collector_block_view($delta='') {
+	$block = array();
+	switch($delta) {
+		case 'jira_collector_block': 
+			$out = '<script type="text/javascript" src="https://issues.shanti.virginia.edu/s/d41d8cd98f00b204e9800998ecf8427e/en_US1hh1fo-1988229788/6260/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=3b82b030"></script>';
+			$block['content'] = $out;
+			break;
+	}
+	return $block;
+}
+
